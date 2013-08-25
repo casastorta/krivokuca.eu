@@ -1,4 +1,5 @@
 from django.db import models
+from types import IntType
 
 
 class Book(models.Model):
@@ -13,6 +14,7 @@ class Book(models.Model):
     goodreads_url = models.URLField(blank=True)
     short_description = models.TextField(blank=True)
     date_added = models.DateField()
+    url_slug = models.SlugField(blank=True)
 
     def __unicode__(self):
         return self.title
@@ -21,10 +23,11 @@ class Book(models.Model):
         short = u'%s' % (self.short_description)
         return short.replace('\n', ' ')
 
-    def shorten_description(self):
+    def shorten_description(self, desired_length=128):
+        assert type(desired_length) == IntType
         short_description = u'%s\u2026' % \
-            (self.single_line_description()[0:96]) \
-            if len(self.single_line_description()) > 96 else \
+            (self.single_line_description()[0:desired_length]) \
+            if len(self.single_line_description()) > desired_length else \
             self.single_line_description()
         return short_description
 
@@ -41,6 +44,8 @@ class Author(models.Model):
     goodreads_url = models.URLField(blank=True)
     short_bio = models.TextField(blank=True)
     date_added = models.DateField()
+    url_slug = models.SlugField(blank=True)
+
     # Relation towards books
     books = models.ManyToManyField(Book, blank=True)
 
@@ -51,10 +56,11 @@ class Author(models.Model):
         short = u'%s' % (self.short_bio)
         return short.replace('\n', ' ')
 
-    def shorten_bio(self):
+    def shorten_bio(self, desired_length=128):
+        assert type(desired_length) == IntType
         short_bio = u'%s\u2026' % \
-            (self.single_line_bio()[0:96]) \
-            if len(self.single_line_bio()) > 96 else \
+            (self.single_line_bio()[0:desired_length]) \
+            if len(self.single_line_bio()) > desired_length else \
             self.single_line_bio()
         return short_bio
 
@@ -66,6 +72,8 @@ class Quote(models.Model):
     quote_text = models.TextField()
     quote_context = models.TextField(blank=True)
     date_added = models.DateField()
+    url_slug = models.SlugField(blank=True)
+
     # Relation towards books
     book = models.ForeignKey(Book)
 

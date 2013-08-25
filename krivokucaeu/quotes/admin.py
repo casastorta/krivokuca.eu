@@ -43,7 +43,7 @@ class ClickAdmin(admin.ModelAdmin):
     list_display = \
         ('link_display', 'url_display', 'click_type', 'click_destination',
          'click_datetime')
-    list_filter = ('click_type', 'click_destination', 'click_datetime')
+    list_filter = ('click_type', 'click_destination', 'click_datetime',)
     date_hierarchy = 'click_datetime'
     ordering = ('-click_datetime',)
 
