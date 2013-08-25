@@ -4,6 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+import quotes.urls as qurls
+
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'krivokucaeu.views.home', name='home'),
@@ -14,4 +17,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^q/', include(qurls)),
 )
