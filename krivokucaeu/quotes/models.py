@@ -31,7 +31,13 @@ class Author(models.Model):
     goodreads_url = models.TextField(max_length=2000, blank=True)
     short_bio = models.TextField(blank=True)
     # Relation towards books
-    books = models.ManyToManyField(Book)
+    books = models.ManyToManyField(Book, blank=True)
 
     def __unicode__(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+        return u'%s, %s' % (self.last_name, self.first_name)
+
+
+class Quote(models.Model):
+    quote_text = models.TextField()
+    quote_context = models.TextField(blank=True)
+    book = models.ForeignKey(Book)
