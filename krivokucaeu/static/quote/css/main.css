@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300&subset=latin-ext);
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+html {
+    margin: 0;
+}
+
+div#layout {
+    width: 100%;
+}
+
+content {
+    width: 75%;
+    float: left;
+    margin-left: 10px;
+}
+
+nav {
+    width: 15%;
+    float: left;
+    margin: 0;
+    clear: none;
+    height: 100%;
+}
+

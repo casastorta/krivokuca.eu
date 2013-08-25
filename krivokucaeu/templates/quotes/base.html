@@ -1,0 +1,29 @@
+{% load static from staticfiles %}
+<!DOCTYPE HTML>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'common/css/pure-min.css' %}" />
+    <link rel="stylesheet" href="{% static "quote/css/pure-theme.css" %}" />
+    <link rel="stylesheet" href="{% static "quote/css/main.css" %}" />
+</head>
+<body class="pure-skin-quotes">
+<div class="pure-g-r" id="layout">
+  <nav>
+    <div class="pure-menu pure-menu-open">
+      <a class="pure-menu-heading" href="/a">Quotes</a>
+      <ul>
+        <li><a href="/q/authors">Authors</a></li>
+        <li><a href="/q/books">Books</a></li>
+      </ul>
+    </div>
+  </nav>
+  <content>
+    <div class="pure-u-1">
+    {% block content %}{% endblock %}
+    {% block footer %}
+    {% endblock %}
+    </div>
+  </content>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "quotes/base.html" %}
+{% block content %}
+
+<div class="pure-g-r">
+    <div class="bio pure-u-1-2">
+        <div class="l-box">
+            <h1>
+            {{ author.first_name }} {{ author.last_name }}
+            </h1>
+        </div>
+    </div>
+    <div class="bio pure-u-1-2">
+        <div class="l-box">
+            <h3>Short bio</h3>
+            <p>{{ author.short_bio }}</p>
+        </div>
+    </div>
+    <div class="links pure-u-1-2">
+        <div class="l-box">
+            <h3>Links</h3>
+            <ul>
+            {% if author.amazon_url %}
+                <li>
+                    <a href="{{ author.amazon_url }}">Amazon author page</a><br />
+                </li>
+            {% endif %}
+            {% if author.goodreads_url %}
+                <li>
+                    <a href="{{ author.goodreads_url }}">Goodreads author page</a><br />
+                </li>
+            {% endif %}
+            {% if author.wikipedia_url %}
+                <li>
+                    <a href="{{ author.wikipedia_url }}">Wikipedia author page</a><br />
+                </li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="books pure-u-1-2">
+        <div class="l-box">
+            <h3>Books in Quotes database</h3>
+            {% for book in books %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
