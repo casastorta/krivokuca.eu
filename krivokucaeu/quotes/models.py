@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Book(models.Model):
     '''
@@ -41,3 +39,9 @@ class Quote(models.Model):
     quote_text = models.TextField()
     quote_context = models.TextField(blank=True)
     book = models.ForeignKey(Book)
+    date_added = models.DateField()
+
+    def __unicode__(self):
+        # On the fly replace potential newlines not to screw up
+        # django admin interface.
+        return u'%s\u2026' % (self.quote_text[0:128].replace('\n', ' '))
