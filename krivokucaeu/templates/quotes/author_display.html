@@ -1,49 +1,65 @@
 {% extends "quotes/base.html" %}
+{% block title %}
+Author - {{ author.first_name }} {{ author.last_name }}
+{% endblock %}
+
 {% block content %}
 
-<div class="pure-g-r">
-    <div class="bio pure-u-1-2">
-        <div class="l-box">
-            <h1>
-            {{ author.first_name }} {{ author.last_name }}
-            </h1>
-        </div>
+<div class="row">
+  <div class="span11">
+    <div class="well well-large">
+        <h1>
+        {{ author.first_name }} {{ author.last_name }}
+        </h1>
     </div>
-    <div class="bio pure-u-1-2">
-        <div class="l-box">
-            <h3>Short bio</h3>
-            <p>{{ author.short_bio }}</p>
-        </div>
-    </div>
-    <div class="links pure-u-1-2">
-        <div class="l-box">
-            <h3>Links</h3>
-            <ul>
-            {% if author.amazon_url %}
-                <li>
-                    <a href="{{ author.amazon_url }}">Amazon author page</a><br />
-                </li>
-            {% endif %}
-            {% if author.goodreads_url %}
-                <li>
-                    <a href="{{ author.goodreads_url }}">Goodreads author page</a><br />
-                </li>
-            {% endif %}
-            {% if author.wikipedia_url %}
-                <li>
-                    <a href="{{ author.wikipedia_url }}">Wikipedia author page</a><br />
-                </li>
-            {% endif %}
-            </ul>
-        </div>
-    </div>
-    <div class="books pure-u-1-2">
-        <div class="l-box">
-            <h3>Books in Quotes database</h3>
-            {% for book in books %}
-            {% endfor %}
-        </div>
-    </div>
+  </div>
 </div>
-
+<div class="row">
+  <div class="span3">
+    <div class="well">
+        <h4>Short biography</h4>
+        {{ author.short_bio }}
+    </div>
+  </div>
+  <div class="span4">
+    <div class="well">
+        <h4>Links</h4>
+        <address>
+        <!--<ul>!-->
+        {% if author.amazon_url %}
+        <!--<li>!-->
+            <a href="{{ author.amazon_url }}" class="btn btn-info quotelink">
+            <i class="icon-shopping-cart"></i>
+                Amazon author page
+            </a>
+        <!--</li>!-->
+        {% endif %}
+        {% if author.goodreads_url %}
+        <!--<li>!-->
+            <a href="{{ author.goodreads_url }}" class="btn btn-info quotelink">
+            <i class="icon-book"></i>
+                Goodreads author page
+            </a>
+        <!--</li>!-->
+        {% endif %}
+        {% if author.wikipedia_url %}
+        <!--<li>!-->
+            <a href="{{ author.wikipedia_url }}" class="btn btn-info quotelink">
+            <i class="icon-book"></i>
+                Wikipedia author page
+            </a>
+        <!--</li>!-->
+        {% endif %}
+        <!--</ul>!-->
+        </address>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="well">
+        <h4>Books we quote</h4>
+        {% for book in books %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

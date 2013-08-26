@@ -1,28 +1,40 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300&subset=latin-ext);
+/*
+
+Primary Color:
+EDEDDE  93938D  6F6F19  F9F9EE  F9F9F2
+Complementary Color:
+9B959E  615F62  36114A  DBD5DE  DCD8DE
+
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700|Open+Sans:400,700,300,600&subset=latin-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300&subset=latin-ext);*/
+
+html, body {
+    background-color: #EDEDDE;
+}
+
+content {
+    baxckground-color: #F9F9EE;
+}
 
 * {
     font-family: "Open Sans", sans-serif;
 }
 
-html {
-    margin: 0;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Oxygen", sans-serif;
+    color: #6F6F19;
 }
 
-div#layout {
-    width: 100%;
+a.quotelink {
+    width: 90%;
+    margin: 8px 0 8px 0;
+    text-align: left;
+    padding-left: 8px;
+    background-color: #6F6F19;
 }
 
-content {
-    width: 75%;
-    float: left;
-    margin-left: 10px;
+a.brand {
+    color: #6F6F19 !important;
 }
-
-nav {
-    width: 15%;
-    float: left;
-    margin: 0;
-    clear: none;
-    height: 100%;
-}
-
