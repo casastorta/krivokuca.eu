@@ -18,7 +18,8 @@
           padding-bottom: 40px;
       }
   </style>
-  <link rel="stylesheet" href="{% static 'common/css/bootstrap-responsive.min.css' %}">
+  <!--<link rel="stylesheet" href="{% static 'common/css/bootstrap-responsive.min.css' %}">!-->
+  <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'quote/css/main.css' %}">
   <link rel="stylesheet" href="{% static 'common/css/font-awesome.min.css' %}">
   <script src="{% static 'common/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
@@ -56,7 +57,9 @@
   </nav>
   <content>
     <div class="container">
-    {% block content %}{% endblock %}
+      <div class="well">
+      {% block content %}{% endblock %}
+      </div>
     {% block footer %}
     {% endblock %}
     </div>
