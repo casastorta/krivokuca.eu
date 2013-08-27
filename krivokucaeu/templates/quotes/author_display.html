@@ -51,8 +51,18 @@ Author - {{ author.first_name }} {{ author.last_name }}
   </div>
   <div class="span4">
     <h4>Books we quote</h4>
+    {% if books %}
+    <ul>
     {% for book in books %}
+        <li><a href="/book/{{ book.id }}">{{ book.title }}</a></li>
     {% endfor %}
+    </ul>
+    {% else %}
+        <p class="text-warning">
+            There seems to be no books associated with
+            {{ author.first_name }} in our databases.
+        </p>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

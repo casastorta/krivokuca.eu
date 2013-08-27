@@ -14,6 +14,6 @@ def author_by_id(request, id=1):
         raise Http404
     t = get_template('quotes/author_display.html')
     html = t.render(Context(
-        {'author': a}
+        {'author': a, 'books': a.books.all()}
     ))
     return HttpResponse(html)
