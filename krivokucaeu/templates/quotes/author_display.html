@@ -1,4 +1,7 @@
 {% extends "quotes/base.html" %}
+
+{% load url_operations %}
+
 {% block title %}
 Author - {{ author.first_name }} {{ author.last_name }}
 {% endblock %}
@@ -24,26 +27,17 @@ Author - {{ author.first_name }} {{ author.last_name }}
     <ul>
     {% if author.amazon_url %}
     <li>
-        <a href="{{ author.amazon_url }}">
-        <i class="icon-shopping-cart"></i>
-            Amazon author page
-        </a>
+        {% trackable_link author.id 'A' 'AMZN' 'Amazon author page' %}
     </li>
     {% endif %}
     {% if author.goodreads_url %}
     <li>
-        <a href="{{ author.goodreads_url }}">
-        <i class="icon-book"></i>
-            Goodreads author page
-        </a>
+        {% trackable_link author.id 'A' 'GR' 'GoodReads author page' %}
     </li>
     {% endif %}
     {% if author.wikipedia_url %}
     <li>
-        <a href="{{ author.wikipedia_url }}">
-        <i class="icon-book"></i>
-            Wikipedia author page
-        </a>
+        {% trackable_link author.id 'A' 'WIKI' 'Wikipedia author page' %}
     </li>
     {% endif %}
     </ul>
