@@ -30,5 +30,3 @@ def author_by_slug(request, slug):
         raise Http404
     id = a.id
     return author_by_id(request, id)
-
-

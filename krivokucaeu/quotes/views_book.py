@@ -18,3 +18,15 @@ def book_by_id(request, id):
         'authors': b.author_set.all()
     }))
     return HttpResponse(html)
+
+
+def book_by_slug(request, slug):
+    '''
+    Retrieve book by slug
+    '''
+    try:
+        b = qm.Book.objects.get(url_slug=slug)
+    except qm.Book.DoesNotExist:
+        raise Http404
+    id = b.id
+    return book_by_id(request, id)
