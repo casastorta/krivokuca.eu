@@ -523,10 +523,10 @@ dd {
   .dl-horizontal dd:after {
     content: " ";
     /* 1 */
-
+  
     display: table;
     /* 2 */
-
+  
   }
   .dl-horizontal dd:after {
     clear: both;
@@ -535,10 +535,10 @@ dd {
   .dl-horizontal dd:after {
     content: " ";
     /* 1 */
-
+  
     display: table;
     /* 2 */
-
+  
   }
   .dl-horizontal dd:after {
     clear: both;
@@ -2135,8 +2135,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -3689,7 +3689,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555555;
+  color: #5a5a1e;
   background-color: #d9d9bf;
 }
 .navbar-default .navbar-nav > .disabled > a,
@@ -3721,13 +3721,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #d9d9bf;
-  color: #555555;
+  color: #5a5a1e;
 }
 .navbar-default .navbar-nav > .open > a .caret,
 .navbar-default .navbar-nav > .open > a:hover .caret,
 .navbar-default .navbar-nav > .open > a:focus .caret {
-  border-top-color: #555555;
-  border-bottom-color: #555555;
+  border-top-color: #5a5a1e;
+  border-bottom-color: #5a5a1e;
 }
 .navbar-default .navbar-nav > .dropdown > a .caret {
   border-top-color: #6f6f19;
@@ -3745,7 +3745,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #555555;
+    color: #5a5a1e;
     background-color: #d9d9bf;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
