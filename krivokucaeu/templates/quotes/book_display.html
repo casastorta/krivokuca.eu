@@ -40,7 +40,7 @@ Book - {{ book.title }}
         <div class="col-md-12">
             <h4>Author{% if authors.count > 1 %}s{% endif %}</h4>
             {% for author in authors %}
-            <a href="/q/author/{% if author.url_slug %}{{ author.url_slug }}{% else %}{{ author.id }}{% endif %}">
+            <a href="/q/author/{{ author.url_id }}">
                 {{ author.last_name }}, {{ author.first_name }}
             </a><br />
             {% endfor %}
