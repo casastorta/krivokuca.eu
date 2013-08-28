@@ -12,43 +12,49 @@
   <script src="{% static 'common/js/vendor/bootstrap.min.js' %}"></script>
 </head>
 <body>
-  <header class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <nav class="navbar navbar-default collapse navbar-collapse bs-navbar-collapse" role="navigation">
-        <a class="navbar-brand" href="#">Quotes App</a>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Quotes</a></li>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/authors">Authors</a></li>
-        </ul>
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control"
-              placeholder="Search for author, book or part of the quote" />
-            </div>
-          <button type="submit" class="btn btn-default">
-            <span class=".glyphicon .glyphicon-search"></span> Search
-          </button>
-        </form>
-      </nav>
+
+<div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Quotes By Krivokuca.eu</a>
     </div>
-  </header>
-  <content>
-    <div class="container">
-      <div class="well">
-        {% block content %}{% endblock %}
-      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Quotes</a></li>
+        <li><a href="/books">Books</a></li>
+        <li><a href="/authors">Authors</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control"
+            placeholder="Search for author, book or part of the quote">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+</div>
+
+<div class="container">
+  <main class="bs-masthead" id="content" role="main">
+      <content>
+        <div class="well">
+          {% block content %}{% endblock %}
+        </div>
+      </content>
     {% block footer %}
     {% endblock %}
-    </div>
-  </content>
+  </main>
+</div>
+
 </body>
 </html>
