@@ -6,7 +6,7 @@ import quotes.models as qm
 import datetime
 
 
-def author_by_id(request, id=1):
+def author_by_id(request, id):
     '''
     Retrieve author by ID
     '''
@@ -19,6 +19,18 @@ def author_by_id(request, id=1):
         {'author': a, 'books': a.books.all()}
     ))
     return HttpResponse(html)
+
+
+def author_by_slug(request, slug):
+    '''
+    Retrieve author by slug
+    '''
+    try:
+        a = qm.Author.objects.get(url_slug=slug)
+    except qm.Author.DoesNotExist:
+        raise Http404
+    id = a.id
+    return author_by_id(request, id)
 
 
 def click(request, linksource, linktype, linkid):
