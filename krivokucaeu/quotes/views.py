@@ -15,9 +15,10 @@ def author_by_id(request, id):
     except qm.Author.DoesNotExist:
         raise Http404
     t = get_template('quotes/author_display.html')
-    html = t.render(Context(
-        {'author': a, 'books': a.books.all()}
-    ))
+    html = t.render(Context({
+        'author': a,
+        'books': a.books.all()
+    }))
     return HttpResponse(html)
 
 
@@ -31,6 +32,22 @@ def author_by_slug(request, slug):
         raise Http404
     id = a.id
     return author_by_id(request, id)
+
+
+def book_by_id(request, id):
+    '''
+    Retrieve book by ID
+    '''
+    try:
+        b = qm.Book.objects.get(pk=id)
+    except qm.Book.DoesNotExist:
+        raise Http404
+    t = get_template('quotes/book_display.html')
+    html = t.render(Context({
+        'book': b,
+        'authors': b.author_set.all()
+    }))
+    return HttpResponse(html)
 
 
 def click(request, linksource, linktype, linkid):
