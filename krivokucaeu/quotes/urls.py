@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
-from quotes import views as qv, views_author as av, views_book as bv
+from quotes import views as v, views_author as av, views_book as bv, \
+    views_quote as qv
 
 
 urlpatterns = patterns('',
@@ -13,8 +14,10 @@ urlpatterns = patterns('',
 
     url(r'books', bv.books_all),
 
-    url(r'^click/(?P<linksource>[A-Z]{1})/(?P<linktype>[A-Z]{2,4})/'
-        '(?P<linkid>\d+)', qv.click),
+    url(r'quote/(?P<id>\d+)', qv.quote_by_id),
 
-    url(r'^about', qv.about),
+    url(r'^click/(?P<linksource>[A-Z]{1})/(?P<linktype>[A-Z]{2,4})/'
+        '(?P<linkid>\d+)', v.click),
+
+    url(r'^about', v.about),
 )

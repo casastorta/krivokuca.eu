@@ -13,3 +13,8 @@ def trackable_link(linkid, linksource, linktype, description):
         (track_url, description)
 
     return assembly
+
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)

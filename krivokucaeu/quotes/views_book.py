@@ -18,6 +18,7 @@ def book_by_id(request, id):
     html = t.render(Context({
         'book': b,
         'authors': b.author_set.all(),
+        'quotes': b.quote_set.all(),
         'current_section': current_section
     }))
     return HttpResponse(html)
@@ -39,6 +40,10 @@ def books_all(request):
     '''
     List all the books
     '''
+    letters = []
+    for letter in xrange(ord('A'), ord('Z') + 1):
+        letters.append(chr(letter))
+
     books_list = {}
     # Sort them by first letter
     books = qm.Book.objects.order_by('title').all()
@@ -53,6 +58,7 @@ def books_all(request):
 
     t = get_template('quotes/books_all.html')
     html = t.render(Context({
+        'letters': letters,
         'books': books_list,
         'current_section': current_section
     }))

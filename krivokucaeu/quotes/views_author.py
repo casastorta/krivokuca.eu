@@ -39,6 +39,10 @@ def authors_all(request):
     '''
     List all the authors
     '''
+    letters = []
+    for asc in xrange(ord('A'), ord('Z') + 1):
+        letters.append(chr(asc))
+
     authors_list = {}
     # Sort them by first letter
     authors = qm.Author.objects.order_by('last_name', 'first_name').all()
@@ -53,6 +57,7 @@ def authors_all(request):
 
     t = get_template('quotes/authors_all.html')
     html = t.render(Context({
+        'letters': letters,
         'authors': authors_list,
         'current_section': current_section
     }))

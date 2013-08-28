@@ -11,7 +11,7 @@ Blue:
 2437A2
 */
 
-@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700|Open+Sans:400,700,300,600&subset=latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,700|Open+Sans:400,600,700,300&subset=latin,latin-ext);
 
 a.quotelink {
     text-align: left;
@@ -21,6 +21,24 @@ a.quotelink {
 
 h1, h2, h3, h4, h5, h6 {
     color: #6F6F19;
+}
+
+p.quotes {
+    font-family: 'Fauna One';
+    weight: 400;
+    font-size: 220%;
+    color: #9B959E  ;
+}
+
+p.quotes-smaller {
+    font-family: 'Fauna One';
+    weight: 400;
+    font-size: 160%;
+    color: #9B959E  ;
+}
+
+p.quotes-details-smaller {
+    font-size: 75%;
 }
 
 footer > p {

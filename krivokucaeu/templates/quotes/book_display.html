@@ -46,7 +46,7 @@ Book - {{ book.title }}
             {% endfor %}
         </div>
     </div>
-      <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <h4>Links</h4>
             <address>
@@ -69,11 +69,29 @@ Book - {{ book.title }}
             </ul>
             </address>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-        </div>
-      </div>
+    </div>
   </div>
 </div>
+{% if quotes %}
+<div id="quotes" class="hidden-xs">
+    <div class="row">
+        <div class="col-md-12">
+        <h3>Quotes from the book</h3>
+        <hr />
+        </div>
+    </div>
+    <div class="row">
+    {% for quote in quotes %}
+        <div class="col-md-4">
+        <p class="quotes-smaller">
+            {{ quote.quote_text }}
+        </p>
+        <p class="quotes-details-smaller">
+            <a href="/q/quote/{{ quote.id }}">Permalink</a>
+        </p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
 {% endblock %}

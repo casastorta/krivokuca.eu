@@ -1,5 +1,7 @@
 {% extends "quotes/base.html" %}
 
+{% load url_operations %}
+
 {% block title %}
 Authors - View all
 {% endblock %}
@@ -13,16 +15,17 @@ Authors - View all
     </div>
 </div>
 <div class="row">
-    {% for letter, authorz in authors.items %}
+    {% for letter in letters %}
+    {% if authors|get_item:letter %}
     <div class="col-md-4">
-    <h4 class="secttitle">{{ letter }}</h4>
-        {% for author in authorz %}
-        <a href="/q/author/{{ author.url_id }}">
-            {{ author.last_name }}, {{ author.first_name }}
-        </a>
+     <h4 class="secttitle">{{ letter }}</h4>
+        {% for author in authors|get_item:letter %}
+        <a href="/q/author/{{ author.url_id }}">{{ author.last_name }},
+            {{ author.first_name }}</a>
         <br />
         {% endfor %}
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 
