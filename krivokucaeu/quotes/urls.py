@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^book/(?P<id>\d+)', bv.book_by_id),
     url(r'^book/(?P<slug>[a-z\-]{2,30})', bv.book_by_slug),
 
+    url(r'books', bv.books_all),
+
     url(r'^click/(?P<linksource>[A-Z]{1})/(?P<linktype>[A-Z]{2,4})/'
         '(?P<linkid>\d+)', qv.click),
 

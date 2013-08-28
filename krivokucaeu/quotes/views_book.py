@@ -30,3 +30,26 @@ def book_by_slug(request, slug):
         raise Http404
     id = b.id
     return book_by_id(request, id)
+
+
+def books_all(request):
+    '''
+    List all the books
+    '''
+    books_list = {}
+    # Sort them by first letter
+    books = qm.Book.objects.order_by('title').all()
+
+    for book in books:
+        letter = book.first_letter_of_title()
+        try:
+            books_list[letter]
+        except KeyError:
+            books_list[letter] = []
+        books_list[letter].append(book)
+
+    t = get_template('quotes/books_all.html')
+    html = t.render(Context({
+        'books': books_list
+    }))
+    return HttpResponse(html)
