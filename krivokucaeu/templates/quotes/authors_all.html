@@ -1,0 +1,29 @@
+{% extends "quotes/base.html" %}
+
+{% block title %}
+Authors - View all
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>All authors</h1>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    {% for letter, authorz in authors.items %}
+    <div class="col-md-4">
+    <h4 class="secttitle">{{ letter }}</h4>
+        {% for author in authorz %}
+        <a href="/q/author/{{ author.url_id }}">
+            {{ author.last_name }}, {{ author.first_name }}
+        </a>
+        <br />
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

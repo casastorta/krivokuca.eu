@@ -30,3 +30,26 @@ def author_by_slug(request, slug):
         raise Http404
     id = a.id
     return author_by_id(request, id)
+
+
+def authors_all(request):
+    '''
+    List all the authors
+    '''
+    authors_list = {}
+    # Sort them by first letter
+    authors = qm.Author.objects.order_by('last_name', 'first_name').all()
+
+    for author in authors:
+        letter = author.first_letter_of_last_name()
+        try:
+            authors_list[letter]
+        except KeyError:
+            authors_list[letter] = []
+        authors_list[letter].append(author)
+
+    t = get_template('quotes/authors_all.html')
+    html = t.render(Context({
+        'authors': authors_list
+    }))
+    return HttpResponse(html)

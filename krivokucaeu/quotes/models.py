@@ -31,6 +31,18 @@ class Book(models.Model):
             self.single_line_description()
         return short_description
 
+    def first_letter_of_title(self):
+        '''
+        Return first letter of the last name
+        '''
+        return self.title and self.title[0:1] or ''
+
+    def url_id(self):
+        '''
+        Returns either url_slug or ID if slug not present
+        '''
+        return self.url_slug if self.url_slug != '' else self.id
+
 
 class Author(models.Model):
     '''
@@ -53,16 +65,34 @@ class Author(models.Model):
         return u'%s, %s' % (self.last_name, self.first_name)
 
     def single_line_bio(self):
+        '''
+        Converts biography to single line (for summaries)
+        '''
         short = u'%s' % (self.short_bio)
         return short.replace('\n', ' ')
 
     def shorten_bio(self, desired_length=128):
+        '''
+        Shortens biography for summaries.
+        '''
         assert type(desired_length) == IntType
         short_bio = u'%s\u2026' % \
             (self.single_line_bio()[0:desired_length]) \
             if len(self.single_line_bio()) > desired_length else \
             self.single_line_bio()
         return short_bio
+
+    def first_letter_of_last_name(self):
+        '''
+        Return first letter of the last name
+        '''
+        return self.last_name and self.last_name[0:1] or ''
+
+    def url_id(self):
+        '''
+        Returns either url_slug or ID if slug not present
+        '''
+        return self.url_slug if self.url_slug != '' else self.id
 
 
 class Quote(models.Model):
