@@ -9,7 +9,7 @@ Author - {{ author.first_name }} {{ author.last_name }}
 {% block content %}
 
 <div class="row">
-  <div class="span11">
+  <div class="col-md-12">
     <h1>
     {{ author.first_name }} {{ author.last_name }}
     </h1>
@@ -17,33 +17,35 @@ Author - {{ author.first_name }} {{ author.last_name }}
   </div>
 </div>
 <div class="row">
-  <div class="span4">
+  <div class="col-md-5">
     <h4>Short biography</h4>
     {{ author.short_bio }}
+      <div class="row">
+        <div class="col-md-12">
+            <h4>Links</h4>
+            <address>
+            <ul>
+            {% if author.amazon_url %}
+            <li>
+                {% trackable_link author.id 'A' 'AMZN' 'Amazon author page' %}
+            </li>
+            {% endif %}
+            {% if author.goodreads_url %}
+            <li>
+                {% trackable_link author.id 'A' 'GR' 'GoodReads author page' %}
+            </li>
+            {% endif %}
+            {% if author.wikipedia_url %}
+            <li>
+                {% trackable_link author.id 'A' 'WIKI' 'Wikipedia author page' %}
+            </li>
+            {% endif %}
+            </ul>
+            </address>
+        </div>
+      </div>
   </div>
-  <div class="span3">
-    <h4>Links</h4>
-    <address>
-    <ul>
-    {% if author.amazon_url %}
-    <li>
-        {% trackable_link author.id 'A' 'AMZN' 'Amazon author page' %}
-    </li>
-    {% endif %}
-    {% if author.goodreads_url %}
-    <li>
-        {% trackable_link author.id 'A' 'GR' 'GoodReads author page' %}
-    </li>
-    {% endif %}
-    {% if author.wikipedia_url %}
-    <li>
-        {% trackable_link author.id 'A' 'WIKI' 'Wikipedia author page' %}
-    </li>
-    {% endif %}
-    </ul>
-    </address>
-  </div>
-  <div class="span4">
+  <div class="col-md-7">
     <h4>Books we quote</h4>
     {% if books %}
     <ul>

@@ -1,10 +1,5 @@
 {% load static from staticfiles %}
 <!DOCTYPE HTML>
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <title>{% block title %}{% endblock %}</title>
   <meta charset="utf-8">
@@ -12,53 +7,44 @@
   <title></title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
-  <style>
-      body {
-          padding-top: 60px;
-          padding-bottom: 40px;
-      }
-  </style>
-  <!--<link rel="stylesheet" href="{% static 'common/css/bootstrap-responsive.min.css' %}">!-->
-  <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'quote/css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'common/css/font-awesome.min.css' %}">
-  <script src="{% static 'common/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+  <script src="{% static 'common/js/vendor/jquery-2.0.3.min.js' %}"></script>
+  <script src="{% static 'common/js/vendor/bootstrap.min.js' %}"></script>
 </head>
 <body>
-<!--[if lt IE 7]>
-    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-<![endif]-->
-
-<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-  <nav>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand">
-            <i class="icon-bookmark-empty"></i>
-            Quotes by Krivokuca.eu</a>
-          <ul class="nav nav-pills">
-            <li class="active"><a href="/">Quotes</a></li>
-            <li><a href="/books">Books</a></li>
-            <li><a href="/authors">Authors</a></li>
-          </ul>
-          <form class="navbar-form pull-right">
-            <input type="text" placeholder="Search for author, book or part of the quote" />
-            <button type="submit" class="btn"><i class="icon-search"></i></button>
-          </form>
-        </div>
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
+      <nav class="navbar navbar-default collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <a class="navbar-brand" href="#">Quotes App</a>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Quotes</a></li>
+          <li><a href="/books">Books</a></li>
+          <li><a href="/authors">Authors</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control"
+              placeholder="Search for author, book or part of the quote" />
+            </div>
+          <button type="submit" class="btn btn-default">
+            <span class=".glyphicon .glyphicon-search"></span> Search
+          </button>
+        </form>
+      </nav>
     </div>
-  </nav>
+  </header>
   <content>
     <div class="container">
       <div class="well">
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
       </div>
     {% block footer %}
     {% endblock %}
