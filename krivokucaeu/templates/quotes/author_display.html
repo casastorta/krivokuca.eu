@@ -19,7 +19,14 @@ Author - {{ author.first_name }} {{ author.last_name }}
 <div class="row">
   <div class="col-md-6">
     <h4>Short biography</h4>
-    {{ author.short_bio|linebreaks }}
+    {% if author.short_bio %}
+        {{ author.short_bio|linebreaks }}
+    {% else %}
+    <p class="text-warning">
+        There seems to be no shot biography associated with
+        {{ author.first_name }} in our databases.
+    </p>
+    {% endif %}
   </div>
   <div class="col-md-6">
       <div class="row">
