@@ -1,4 +1,6 @@
-from django.http import Http404
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 import quotes.models as qm
 import datetime
@@ -44,3 +46,11 @@ def click(request, linksource, linktype, linkid):
     click.save()
 
     return redirect(url)
+
+
+def about(request):
+    '''
+    Simply an about page renderer
+    '''
+    html = get_template('quotes/about.html').render(Context())
+    return HttpResponse(html)
