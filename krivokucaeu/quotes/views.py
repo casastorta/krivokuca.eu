@@ -5,6 +5,8 @@ from django.shortcuts import redirect
 import quotes.models as qm
 import datetime
 
+current_section = 'about'
+
 
 def click(request, linksource, linktype, linkid):
     '''
@@ -52,5 +54,7 @@ def about(request):
     '''
     Simply an about page renderer
     '''
-    html = get_template('quotes/about.html').render(Context())
+    html = get_template('quotes/about.html').render(Context({
+        'current_section': current_section
+    }))
     return HttpResponse(html)

@@ -3,6 +3,8 @@ from django.template import Context
 from django.http import HttpResponse, Http404
 import quotes.models as qm
 
+current_section = 'author'
+
 
 def author_by_id(request, id):
     '''
@@ -15,7 +17,8 @@ def author_by_id(request, id):
     t = get_template('quotes/author_display.html')
     html = t.render(Context({
         'author': a,
-        'books': a.books.all()
+        'books': a.books.all(),
+        'current_section': current_section
     }))
     return HttpResponse(html)
 
@@ -50,6 +53,7 @@ def authors_all(request):
 
     t = get_template('quotes/authors_all.html')
     html = t.render(Context({
-        'authors': authors_list
+        'authors': authors_list,
+        'current_section': current_section
     }))
     return HttpResponse(html)
