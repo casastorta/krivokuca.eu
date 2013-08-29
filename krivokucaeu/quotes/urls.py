@@ -6,8 +6,6 @@ from quotes import views as v, views_author as av, views_book as bv, \
 
 urlpatterns = patterns('',
 
-    url(r'', (v.index)),
-
     url(r'^author/(?P<id>\d+)', cache_page(60 * 15)(av.author_by_id)),
     url(r'^author/(?P<slug>[a-z\-]{2,30})',
         cache_page(60 * 15)(av.author_by_slug)),
@@ -28,4 +26,7 @@ urlpatterns = patterns('',
         '(?P<linkid>\d+)', v.click),
 
     url(r'^about', cache_page(60 * 15)(v.about)),
+
+    url(r'^index', (v.index)),
+    url(r'^', (v.index)),
 )
