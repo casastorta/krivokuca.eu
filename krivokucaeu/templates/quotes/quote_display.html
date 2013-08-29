@@ -14,6 +14,10 @@ Quote
         {{ quote.quote_text|linebreaksbr }}
     </p>
     <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
     <p class="quote-details">
         From the book <a href="/q/book/{{ quote.book.url_id }}">{{ quote.book.title }}</a>
         by
@@ -22,6 +26,11 @@ Quote
         <a href="/q/author/{{ author.url_id }}">{{ author.first_name}}
             {{ author.last_name}}</a>
         {% endfor %}
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p class="quote-details text-right">
+        <a href="/q/quote/{{ quote.url_id }}">Permalink</a>
     </p>
   </div>
 </div>
