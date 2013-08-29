@@ -24,5 +24,5 @@ urlpatterns = patterns('',
     url(r'^click/(?P<linksource>[A-Z]{1})/(?P<linktype>[A-Z]{2,4})/'
         '(?P<linkid>\d+)', v.click),
 
-    url(r'^about', cache_page(60 * 60)(v.about)),
+    url(r'^about', cache_page(60 * 15)(v.about)),
 )

@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 import quotes.models as qm
 import datetime
+import random
 
 current_section = 'about'
 
@@ -54,7 +55,16 @@ def about(request):
     '''
     Simply an about page renderer
     '''
+    try:
+        # Randomizing in-memory, beware!
+        authors = list(qm.Author.objects.all())
+        random.shuffle(authors)
+    except qm.Quote.DoesNotExist:
+        raise Http404
+    three_authors = authors[0:3]
+    del(authors)
     html = get_template('quotes/about.html').render(Context({
+        'three_authors': three_authors,
         'current_section': current_section
     }))
     return HttpResponse(html)
