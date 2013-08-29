@@ -27,6 +27,6 @@ urlpatterns = patterns('',
 
     url(r'^about', cache_page(60 * 15)(v.about)),
 
-    url(r'^index', (v.index)),
-    url(r'^', (v.index)),
+    url(r'^index', cache_page(60 * 120)(v.index)),
+    url(r'^', cache_page(60 * 120)(v.index)),
 )
