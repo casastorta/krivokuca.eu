@@ -1,4 +1,5 @@
 # Django settings for krivokucaeu project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'memcache_status',
+    'haystack',
     'south',
     'quotes'
 )
@@ -165,4 +167,11 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     }
+}
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
 }

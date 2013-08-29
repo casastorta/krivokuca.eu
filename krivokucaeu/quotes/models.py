@@ -49,6 +49,15 @@ class Book(models.Model):
         '''
         return self.url_slug if self.url_slug != '' else self.id
 
+    def get_absolute_url(self):
+        '''
+        Return absolute URL
+        '''
+        return '/q/book/%s' % (self.url_id())
+
+    def object_type(self):
+        return 'book'
+
 
 class Author(models.Model):
     '''
@@ -100,6 +109,15 @@ class Author(models.Model):
         '''
         return self.url_slug if self.url_slug != '' else self.id
 
+    def get_absolute_url(self):
+        '''
+        Return absolute URL
+        '''
+        return '/q/author/%s' % (self.url_id())
+
+    def object_type(self):
+        return 'author'
+
 
 class Quote(models.Model):
     '''
@@ -121,6 +139,15 @@ class Quote(models.Model):
             len(self.quote_text) > 128 else \
             self.quote_text.replace('\n', ' ')
         return title
+
+    def get_absolute_url(self):
+        '''
+        Return absolute URL
+        '''
+        return '/q/quote/%s' % (self.id)
+
+    def object_type(self):
+        return 'quote'
 
 
 class ClickLog(models.Model):

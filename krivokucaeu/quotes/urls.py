@@ -1,10 +1,18 @@
 from django.views.decorators.cache import cache_page
-from django.conf.urls import patterns, url
+from django.conf.urls import include, patterns, url
+from haystack.forms import HighlightedSearchForm
+from haystack.views import SearchView
 from quotes import views as v, views_author as av, views_book as bv, \
     views_quote as qv
 
 
 urlpatterns = patterns('',
+
+    url(r'^search',
+        SearchView(
+        template='quotes/search.html',
+        form_class=HighlightedSearchForm
+    ), name='haystack_search'),
 
     url(r'^author/(?P<id>\d+)', cache_page(60 * 15)(av.author_by_id)),
     url(r'^author/(?P<slug>[a-z\-]{2,30})',
