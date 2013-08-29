@@ -9,6 +9,15 @@ import random
 current_section = 'about'
 
 
+def index(request):
+    '''
+    Index page (homepage)
+    '''
+    html = get_template('quotes/index.html').render(Context({
+    }))
+    return HttpResponse(html)
+
+
 def click(request, linksource, linktype, linkid):
     '''
     Track link
