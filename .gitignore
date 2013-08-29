@@ -2,3 +2,4 @@ _env/*
 *.pyc
 *.sublime-*
 orig-*
+krivokucaeu/krivokucaeu/whoosh_index
