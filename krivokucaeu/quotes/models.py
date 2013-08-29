@@ -20,10 +20,16 @@ class Book(models.Model):
         return self.title
 
     def single_line_description(self):
+        '''
+        Converts description to single line (for summaries)
+        '''
         short = u'%s' % (self.short_description)
         return short.replace('\n', ' ')
 
     def shorten_description(self, desired_length=128):
+        '''
+        Shortens description for summaries.
+        '''
         assert type(desired_length) == IntType
         short_description = u'%s\u2026' % \
             (self.single_line_description()[0:desired_length]) \

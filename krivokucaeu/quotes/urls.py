@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'books', cache_page(60 * 10)(bv.books_all)),
 
     url(r'quote/(?P<id>\d+)', cache_page(60 * 15)(qv.quote_by_id)),
+    # Short caching on the following, but still caching it.
+    url(r'quote', cache_page(2)(qv.random_quote)),
 
     url(r'^click/(?P<linksource>[A-Z]{1})/(?P<linktype>[A-Z]{2,4})/'
         '(?P<linkid>\d+)', v.click),
