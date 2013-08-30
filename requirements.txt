@@ -1,4 +1,5 @@
 Django==1.5.2
+django-haystack==2.1.0
 django-memcache-status==1.1
 django-mymigrate==0.1.1
 django-object-tools==0.0.7
@@ -6,3 +7,4 @@ django-south-admin==0.0.3
 docutils==0.11
 python-memcached==1.53
 South==0.8.2
+Whoosh==2.5.2

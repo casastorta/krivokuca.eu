@@ -1,0 +1,78 @@
+{% extends 'quotes/base.html' %}
+
+{% load highlight %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+        <form method="get" action=".">
+        {{ form.as_p}}
+        <input type="submit" value="Search" class="btn btn-default">
+          </form>
+      </div>
+    </div>
+
+    {% if query %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Search results</h3>
+        <hr />
+        {% for result in page.object_list %}
+          <p><span  class="search-result">Found in the {{ result.object_type }}
+            {% if result.object_type == 'quote' %}
+            from the book
+            <a href="{{ result.object.book.get_absolute_url }}">{{ result.book.title }}</a>:
+            {% elif result.object_type == 'book' %}
+            <a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a>:
+            {% else %}
+            <a href="{{ result.object.get_absolute_url }}">{{ result.first_name }}
+              {{ result.last_name }}</a>:
+            {% endif %}
+            </span><br />
+            <a  class="search-result-summary" href="{{ result.object.get_absolute_url }}">
+              {% highlight result.text with query %}
+            </a>
+          </p>
+        {% empty %}
+          <p>No results found.</p>
+        {% endfor %}
+
+        {% if page.has_previous or page.has_next %}
+            <div>
+                {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                |
+                {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+            </div>
+            <hr />
+          </div>
+        </div>
+        {% endif %}
+
+    {% else %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>How to search this site?</h3>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Queries</h4>
+        <p>
+            Simply type in what you search for. Search results will be sorted
+            by occurences of your keywords, within which
+            <a href="/q/quote">quotes</a> have the greatest search priority,
+            and then come <a href="/q/authors">authors</a> and
+            <a href="/q/books">books</a>.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4>Can I specify like what exactly I'm searching for?</h4>
+        <p>
+            Not for now, no. Sorry.
+        </p>
+      </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -55,3 +55,22 @@ h4.secttitle {
     font-weight: 700;
     text-shadow: 0px 0px 4px #36114A;
 }
+
+span.highlighted {
+    background-color: white;
+    color: #A22437;
+    font-weight: 700;
+    padding: 2px;
+    border: 1px #36114A dotted;
+    border-radius: 4px;
+}
+
+span.search-result {
+    font-weight: 700;
+    font-size: 105%;
+}
+
+a.search-result-summary {
+    font-size: 90%;
+    line-height: 115%;
+}
