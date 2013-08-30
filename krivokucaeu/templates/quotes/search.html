@@ -3,29 +3,29 @@
 {% load highlight %}
 
 {% block content %}
-    <h1>Search results</h1>
-
     {% if query %}
-        <h3>Results</h3>
-
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Search results</h3>
+        <hr />
         {% for result in page.object_list %}
-            <p>Found in {{ result.object_type }}
-                {% if result.object_type == 'quote' %}
-                from the book
-                <a href="{{ result.book.object.get_absolute_url }}">{{ result.book.title }}</a>:
-                {% elif result.object_type == 'book' %}
-                <a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a>
-                {% else %}
-                <a href="{{ result.object.get_absolute_url }}">{{ result.first_name }}
-                    {{ result.last_name }}</a>
-                {% endif %}
-                <br />
-                <a href="{{ result.object.get_absolute_url }}">
-                    {% highlight result.text with query %}
-                </a>
-            </p>
+          <p><span  class="search-result">Found in the {{ result.object_type }}
+            {% if result.object_type == 'quote' %}
+            from the book
+            <a href="{{ result.object.book.get_absolute_url }}">{{ result.book.title }}</a>:
+            {% elif result.object_type == 'book' %}
+            <a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a>:
+            {% else %}
+            <a href="{{ result.object.get_absolute_url }}">{{ result.first_name }}
+              {{ result.last_name }}</a>:
+            {% endif %}
+            </span><br />
+            <a  class="search-result-summary" href="{{ result.object.get_absolute_url }}">
+              {% highlight result.text with query %}
+            </a>
+          </p>
         {% empty %}
-            <p>No results found.</p>
+          <p>No results found.</p>
         {% endfor %}
 
         {% if page.has_previous or page.has_next %}
@@ -34,8 +34,12 @@
                 |
                 {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
             </div>
+            <hr />
+          </div>
+        </div>
         {% endif %}
+
     {% else %}
-        {# Show some example queries to run, maybe query syntax, something else? #}
+        <h3>How to search this site?</h3>
     {% endif %}
 {% endblock %}
