@@ -3,6 +3,16 @@
 {% load highlight %}
 
 {% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+        <form method="get" action=".">
+        {{ form.as_p}}
+        <input type="submit" value="Search" class="btn btn-default">
+          </form>
+      </div>
+    </div>
+
     {% if query %}
     <div class="row">
       <div class="col-md-12">
@@ -40,6 +50,29 @@
         {% endif %}
 
     {% else %}
+    <div class="row">
+      <div class="col-md-12">
         <h3>How to search this site?</h3>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Queries</h4>
+        <p>
+            Simply type in what you search for. Search results will be sorted
+            by occurences of your keywords, within which
+            <a href="/q/quote">quotes</a> have the greatest search priority,
+            and then come <a href="/q/authors">authors</a> and
+            <a href="/q/books">books</a>.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4>Can I specify like what exactly I'm searching for?</h4>
+        <p>
+            Not for now, no. Sorry.
+        </p>
+      </div>
+    </div>
     {% endif %}
 {% endblock %}
