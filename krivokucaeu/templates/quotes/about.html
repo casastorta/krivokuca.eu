@@ -1,0 +1,107 @@
+{% extends "quotes/base.html" %}
+
+{% load url_operations %}
+
+{% block title %}
+About Quotes project
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>About this project</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <h4>In general</h4>
+        <p>
+            Quotes project is a weekend project of <a href="http://krivokuca.net">
+            Vedran Krivokuca</a>. Serves for nothing much more than a Python/Django
+            excercise.
+        </p>
+        <h4>What's included?</h4>
+        <p>
+            This is, by no means, throughout database of all the interesting quotes
+            in (modern) literature. It is simply a selection of what I have highlighted
+            from the books I read on my
+            <a href="http://www.amazon.com/gp/product/B008UB7DU6?ie=UTF8&amp;camp=213733&amp;creative=393177&amp;creativeASIN=B008UB7DU6&amp;linkCode=shr&amp;tag=krivokucanetb-20">Kindle reader</a>.
+        </p>
+        <p>
+            Authors I quote here include names like
+            <a href="/q/author/{{ three_authors.0.url_id }}">{{ three_authors.0.first_name }}
+                {{ three_authors.0.last_name }}</a>,
+                <a href="/q/author/{{ three_authors.1.url_id }}">{{ three_authors.1.first_name }}
+                {{ three_authors.1.last_name }}</a>,
+                <a href="/q/author/{{ three_authors.2.url_id }}">{{ three_authors.2.first_name }}
+                {{ three_authors.2.last_name }}</a>…
+        </p>
+        <h4>Legal yadda yadda</h4>
+        <p>
+            All authors, books and quotes from the books are listed here in accordance
+            to fair usage policy. I do not own any of them or any rights to them, they
+            belong to their respective authors, publishers or owners by other right.
+            You can follow Amazon links from practically every page in case you like the
+            quote, author or the book and decide to buy something.
+        </p>
+        <p>
+            Every decent page on this site also has Wikipedia links (you probably know
+            about that wonderful project), and Goodreads link.
+            <a href="http://goodreads.com/">Check out Goodreads,</a>
+            it's a wonderful community for book lovers.
+        </p>
+        <p>
+            Please do support authors of works you enjoy, no matter if they act in
+            written or any other form.
+        </p>
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Opensource technologies</h4>
+                <p>
+                    This site relies heavily on the following opensource technologies:
+                </p>
+                <ul>
+                    <li>it is written in <a href="http://python.org/">
+                        Python programming language
+                    </a></li>
+                    <li>it uses <a href="https://www.djangoproject.com/">
+                        Django web framework
+                    </a></li>
+                    <li>it molests <a href="http://south.aeracode.org/">
+                        South</a>
+                        for Django's database schema migrations</li>
+                    <li>it is performed in your browser by
+                        <a href="http://getbootstrap.com/">Bootstrap</a> and
+                        by that, coincidentally,
+                        <a href="http://jquery.com/">JQuery</a>
+                    </li>
+                    <li>it is hosted on
+                        <a href="http://www.debian.org/">Debian linux distro</a>
+                        running <a href="http://nginx.org/">Nginx</a> HTTP server.
+                    </a></li>
+                    <li>it is developed on
+                        <a href="https://fedoraproject.org/">Fedora linux distro</a>
+                        and often edited by <a href="http://www.vim.org/">VIM</a>
+                        editor.
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Where do we host?</h4>
+                <p>
+                    All of our recommendations go to
+                    <a href="http://www.linode.com/?r=cc319dc896bb711b6c95c54ea42507d982c8a636">
+                        Linode
+                    </a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

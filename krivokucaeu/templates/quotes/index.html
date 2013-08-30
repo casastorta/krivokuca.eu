@@ -1,0 +1,102 @@
+{% extends "quotes/base.html" %}
+
+{% load static from staticfiles %}
+{% load url_operations %}
+
+{% block title %}
+Quotes by Krivokuca.eu
+{% endblock %}
+
+{% block content %}
+<script>
+$( document ).ready(function() {
+    $('.carousel').carousel();
+});
+</script>
+
+<div class="row visible-md visible-lg">
+  <div class="col-md-12">
+
+    <div id="carousel-example-generic" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="{% static 'quote/images/carousel-wilde-short.jpg' %}" alt="Example Carousel">
+          <div class="carousel-caption">
+            <h3>
+                Quotes from classics like Oscar Wilde...
+            </h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'quote/images/carousel-lacy-short.jpg' %}" alt="Example Carousel">
+          <div class="carousel-caption">
+            <h3>
+                ...and modern authors like Sarah Lacy.
+            </h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'quote/images/carousel-oldmanswar-short.jpg' %}" alt="Example Carousel">
+          <div class="carousel-caption">
+            <h3>
+                From books ranging from SF...
+            </h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'quote/images/carousel-catalonia-short.jpg' %}" alt="Example Carousel">
+          <div class="carousel-caption">
+            <h3>
+                ...to historical masterpieces.
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="icon-next"></span>
+      </a>
+    </div>
+
+    <hr />
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <h4>Quotes</h4>
+    <p>Hello reader. You can start by reading some
+        <a href="/q/quote">random quotes</a>.</p>
+  </div>
+  <div class="col-md-3">
+    <h4>Authors</h4>
+    <p>Fanboy or fangirl? If you feel like it,
+        <a href="/q/authors">browse through cited authors</a>.</p>
+  </div>
+  <div class="col-md-3">
+    <h4>Books</h4>
+    <p>You're such a worm, <a href="/q/books">so slip through
+        our books database</a>.</p>
+  </div>
+  <div class="col-md-3">
+    <h4>About</h4>
+    <p>What is this project about?
+        <a href="/q/about">Check it here</a>.</p>
+  </div>
+</div>
+
+{% endblock %}

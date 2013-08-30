@@ -1,0 +1,97 @@
+{% extends "quotes/base.html" %}
+
+{% load url_operations %}
+
+{% block title %}
+Book - {{ book.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+    {{ book.title }}
+    </h1>
+    {% if book.extended_title %}
+        <h2>{{ book.extended_title }}</h2>
+    {% endif %}
+    <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Short description</h4>
+            {% if book.short_description %}
+                {{ book.short_description|linebreaks }}
+            {% else %}
+            <p class="text-warning">
+                There seems to be no shot description associated with
+                this book in our databases.
+            </p>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Author{% if authors.count > 1 %}s{% endif %}</h4>
+            {% for author in authors %}
+            <a href="/q/author/{{ author.url_id }}">
+                {{ author.last_name }}, {{ author.first_name }}
+            </a><br />
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Links</h4>
+            <address>
+            <ul>
+            {% if book.amazon_url %}
+            <li>
+                {% trackable_link book.id 'B' 'AMZN' 'Amazon book page' %}
+            </li>
+            {% endif %}
+            {% if book.goodreads_url %}
+            <li>
+                {% trackable_link book.id 'B' 'GR' 'GoodReads book page' %}
+            </li>
+            {% endif %}
+            {% if book.wikipedia_url %}
+            <li>
+                {% trackable_link book.id 'B' 'WIKI' 'Wikipedia book page' %}
+            </li>
+            {% endif %}
+            </ul>
+            </address>
+        </div>
+    </div>
+  </div>
+</div>
+{% if quotes %}
+<div id="quotes" class="hidden-xs">
+    <div class="row">
+        <div class="col-md-12">
+        <h3>Quotes from the book</h3>
+        <hr />
+        </div>
+    </div>
+    <div class="row">
+    {% for quote in quotes %}
+        <div class="col-md-4">
+        <p class="quotes-smaller">
+            {{ quote.quote_text }}
+        </p>
+        <p class="quotes-details-smaller">
+            <a href="/q/quote/{{ quote.id }}">Permalink</a>
+        </p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

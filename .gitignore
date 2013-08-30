@@ -1,0 +1,7 @@
+_env/*
+*.pyc
+*.sublime-*
+orig-*
+krivokucaeu/krivokucaeu/whoosh_index
+*.json
+settings_production.py

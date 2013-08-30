@@ -1,0 +1,33 @@
+{% extends "quotes/base.html" %}
+
+{% load url_operations %}
+
+{% block title %}
+Books - View all
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>All books</h1>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    {% for letter in letters %}
+    {% if books|get_item:letter %}
+    <div class="col-md-4">
+    <h4 class="secttitle">{{ letter }}</h4>
+        {% for book in books|get_item:letter %}
+        <a href="/q/book/{{ book.url_id }}">
+            {{ book.title }}
+        </a>
+        <br />
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

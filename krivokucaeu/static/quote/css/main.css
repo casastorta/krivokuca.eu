@@ -1,0 +1,76 @@
+/*
+Primary Color:
+EDEDDE  93938D  6F6F19  F9F9EE  F9F9F2
+Complementary Color:
+9B959E  615F62  36114A  DBD5DE  DCD8DE
+Red:
+A22437
+Green:
+24A237
+Blue:
+2437A2
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,700|Open+Sans:400,600,700,300&subset=latin,latin-ext);
+
+a.quotelink {
+    text-align: left;
+    width: 90%;
+    margin: 8px 0 8px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #6F6F19;
+}
+
+p.quotes {
+    font-family: 'Fauna One';
+    font-weight: 400;
+    font-size: 220%;
+    color: #9B959E  ;
+}
+
+p.quotes-smaller {
+    font-family: 'Fauna One';
+    font-weight: 400;
+    font-size: 160%;
+    color: #9B959E  ;
+}
+
+p.quotes-details-smaller {
+    font-size: 75%;
+}
+
+footer > p {
+    font-size: 75%;
+    text-align: center;
+}
+
+h4.secttitle {
+    color: black;
+}
+
+.carousel-caption h3 {
+    color: #F9F9F2;
+    font-weight: 700;
+    text-shadow: 0px 0px 4px #36114A;
+}
+
+span.highlighted {
+    background-color: white;
+    color: #A22437;
+    font-weight: 700;
+    padding: 2px;
+    border: 1px #36114A dotted;
+    border-radius: 4px;
+}
+
+span.search-result {
+    font-weight: 700;
+    font-size: 105%;
+}
+
+a.search-result-summary {
+    font-size: 90%;
+    line-height: 115%;
+}
