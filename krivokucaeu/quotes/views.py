@@ -77,3 +77,12 @@ def about(request):
         'current_section': current_section
     }))
     return HttpResponse(html)
+
+
+def Custom404(request):
+    '''
+    Custom 404 page
+    '''
+    html = get_template('quotes/404.html').render(Context({
+    }))
+    return HttpResponse(html)
