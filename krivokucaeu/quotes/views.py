@@ -45,7 +45,7 @@ def click(request, linksource, linktype, linkid):
         # No link type in db
         raise Http404
 
-    # TODO: Collect user's IP address here
+    ip = request.META.get('REMOTE_ADDR')
 
     click = qm.ClickLog(
         click_url=url,
@@ -53,7 +53,7 @@ def click(request, linksource, linktype, linkid):
         click_destination=linktype,
         click_type_destination_id=linkid,
         click_datetime=datetime.datetime.now(),
-        click_user_address='127.0.0.1'
+        click_user_address=ip
     )
     click.save()
 
