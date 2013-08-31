@@ -1,4 +1,11 @@
 # Krivokuca.eu showcase project #
+This project is written to demonstrate author's skills in modern technologies
+(Django MVC Python web framework, mobile-first adaptive design methodology,
+understanding of relational and nosql database concepts, comfortability
+of working with modern javascript libraries like jQuery...)
+
+It is also made to show off how I'm more cool than you, hence what I read
+is way more cool than your recently-read library. :-)
 
 ## Subprojects ##
 Currently, there is only one project under this repository. It is a **Quotes
