@@ -47,6 +47,7 @@ urlpatterns = patterns('',
     url(r'^index/$', cache_page(60 * 120)(v.index)),
     url(r'^/$', cache_page(60 * 120)(v.index)),
 
-    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
+    (r'^sitemap\.xml$',
+        ('django.contrib.sitemaps.views.sitemap'),
         {'sitemaps': sitemaps}),
 )
