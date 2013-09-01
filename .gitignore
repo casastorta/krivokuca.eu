@@ -5,3 +5,4 @@ orig-*
 krivokucaeu/krivokucaeu/whoosh_index
 *.json
 settings_production.py
+personal_*.html
