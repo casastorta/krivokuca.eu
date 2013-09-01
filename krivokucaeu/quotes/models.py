@@ -1,5 +1,6 @@
 from django.db import models
 from types import IntType
+from django.contrib.sitemaps import ping_google
 
 
 class Book(models.Model):
@@ -57,6 +58,15 @@ class Book(models.Model):
 
     def object_type(self):
         return 'book'
+
+    def save(self, force_insert=False, force_update=False):
+        super(Book, self).save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+        # Bare 'except' because we could get a variety
+        # of HTTP-related exceptions.
+            pass
 
 
 class Author(models.Model):
@@ -118,6 +128,15 @@ class Author(models.Model):
     def object_type(self):
         return 'author'
 
+    def save(self, force_insert=False, force_update=False):
+        super(Author, self).save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+        # Bare 'except' because we could get a variety
+        # of HTTP-related exceptions.
+            pass
+
 
 class Quote(models.Model):
     '''
@@ -148,6 +167,15 @@ class Quote(models.Model):
 
     def object_type(self):
         return 'quote'
+
+    def save(self, force_insert=False, force_update=False):
+        super(Quote, self).save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+        # Bare 'except' because we could get a variety
+        # of HTTP-related exceptions.
+            pass
 
 
 class ClickLog(models.Model):
