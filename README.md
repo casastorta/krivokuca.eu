@@ -48,7 +48,7 @@ To see some of it's features go to:
 Sure, you can. [Just follow the wiki instructions](https://github.com/casastorta/krivokuca.eu/wiki/Prerequisites).
 
 ### Moving to production environment ###
-Again, there are **a lot** of resources but also approaches on migrating
+There are **a lot** of resources but also approaches on migrating
 Django site to production. I am not going to suggest you the right way
 (this site should work in mostly all scenarios), but
 [here is the general idea](https://github.com/casastorta/krivokuca.eu/wiki/Deploying).
@@ -94,11 +94,8 @@ hosting) go to
 
 # Plans for the future #
 Well, currently I can set the roadmap to couple of features for
-[Quotes](http://quotes.krivokuca.eu/) application:
+[Quotes](http://quotes.krivokuca.eu/) application, you'll see them
+as they come.
 
-* generating sitemaps,
-
-* custom stuff in admin interface maybe.
-
-As for more applications in this bundle... Well, keep in touch and we'll
-see.
+# Changelog #
+[Check the changelog here](https://github.com/casastorta/krivokuca.eu/wiki/Whatsnew).
