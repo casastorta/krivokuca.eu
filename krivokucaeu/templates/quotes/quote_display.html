@@ -34,5 +34,14 @@ Quote
     </p>
   </div>
 </div>
+{% if quote.book.amazon_url %}
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      {% trackable_link quote.book.id 'B' 'AMZN' 'Buy this book on Amazon' %}
+    </p>
+  </div>
+</div>
+{% endif %}
 
 {% endblock %}
