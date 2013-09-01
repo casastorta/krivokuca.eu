@@ -7,26 +7,24 @@ Authors - View all
 {% endblock %}
 
 {% block content %}
-
 <div class="row">
     <div class="col-md-12">
         <h1>All authors</h1>
         <hr />
     </div>
 </div>
-<div class="row">
-    {% for letter in letters %}
-    {% if authors|get_item:letter %}
-    <div class="col-md-4">
-     <h4 class="secttitle">{{ letter }}</h4>
-        {% for author in authors|get_item:letter %}
-        <a href="/q/author/{{ author.url_id }}">{{ author.last_name }},
-            {{ author.first_name }}</a>
-        <br />
-        {% endfor %}
-    </div>
-    {% endif %}
+<div class="row"><div class="col-md-12">
+{% for letter in letters %}{% if authors|get_item:letter %}
+{% if c|divisibleby:3 %}<div class="row">{% endif %}
+<div class="col-md-4">
+ <h4 class="secttitle">{{ letter }}</h4>
+    {% for author in authors|get_item:letter %}
+    <a href="/q/author/{{ author.url_id }}">{{ author.last_name }},
+        {{ author.first_name }}</a>
+    <br />
     {% endfor %}
 </div>
-
+{% ++ c %}{% if c|divisibleby:3 and c > 1 %}</div>{% endif %}
+{% endif %}{% endfor %}
+</div></div>
 {% endblock %}

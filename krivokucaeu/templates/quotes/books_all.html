@@ -14,9 +14,9 @@ Books - View all
         <hr />
     </div>
 </div>
-<div class="row">
-    {% for letter in letters %}
-    {% if books|get_item:letter %}
+<div class="row"><div class="col-md-12">
+{% for letter in letters %}{% if books|get_item:letter %}
+{% if c|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-md-4">
     <h4 class="secttitle">{{ letter }}</h4>
         {% for book in books|get_item:letter %}
@@ -26,8 +26,8 @@ Books - View all
         <br />
         {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
-</div>
+{% ++ c %}{% if c|divisibleby:3 and c > 1 %}</div>{% endif %}
+{% endif %}{% endfor %}
+</div></div>
 
 {% endblock %}

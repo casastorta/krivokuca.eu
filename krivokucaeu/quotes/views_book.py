@@ -60,6 +60,7 @@ def books_all(request):
     html = t.render(Context({
         'letters': letters,
         'books': books_list,
-        'current_section': current_section
+        'current_section': current_section,
+        'c': 0
     }))
     return HttpResponse(html)
