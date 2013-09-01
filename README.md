@@ -1,4 +1,11 @@
 # Krivokuca.eu showcase project #
+This project is written to demonstrate author's skills in modern technologies
+(Django MVC Python web framework, mobile-first adaptive design methodology,
+understanding of relational and nosql database concepts, comfortability
+of working with modern javascript libraries like jQuery...)
+
+It is also made to show off how I'm more cool than you, hence what I read
+is way more cool than your recently-read library. :-)
 
 ## Subprojects ##
 Currently, there is only one project under this repository. It is a **Quotes
@@ -38,66 +45,13 @@ To see some of it's features go to:
 * ...and the last but not least, [frontpage](http://quotes.krivokuca.eu/)
 
 ## Trying it on your own ##
-Sure, you can.
-
-Get the files from this repo, tweak settings in
-`krivokucaeu/krivokucaeu/settings.py` (watch out for paths especially),
-follow the usual [Django procedures](http://www.djangobook.com/en/2.0/chapter02.html)
-for instancing a new site and then run as usual (if you're not Django
-oriented person - in short you'll have to end up with running
-`manage.py runserver` and then you would be able to access the site).
-
-I am probably not ever going to cover Django specifics here on my own.
-There are **a lot** of resources on that.
+Sure, you can. [Just follow the wiki instructions](https://github.com/casastorta/krivokuca.eu/wiki/Prerequisites).
 
 ### Moving to production environment ###
-Again, there are **a lot** of resources but also approaches on migrating
+There are **a lot** of resources but also approaches on migrating
 Django site to production. I am not going to suggest you the right way
-(this site should work in mostly all scenarios), but here is the general
-idea.
-
-Create a file called ``krivokucaeu/krivokucaeu/settings_production.py``.
-Yes, I also have it, but it's not included in the repository for the
-obvious reasons. Make it look something like this:
-
-    from settings import *
-
-    DEBUG = TEMPLATE_DEBUG = False
-
-    ADMINS = (
-        ('Your Name', 'your@email.address'),
-    )
-
-    DATABASES = {
-        'default': {
-                <YOUR PRODUCTION DATABASE ACCESS INFO HERE>
-            }
-    }
-
-    # Make this unique, and don't share it with anybody.
-    SECRET_KEY = '<YOUR SECRET KEY HERE>'
-
-...and so on. Basically, change everything which differs in your production
-setup from your dev/test environment setup. This file will include the
-original settings from your project and just replace some of the values
-with its own.
-
-Agian, there are **a lot** of ways to ensure production settings are
-loaded in production environment, and dev settings in dev environment.
-(The Django Book)[http://www.djangobook.com/en/2.0/chapter12.html]
-covers some of the methods.
-
-My way is basically to modify project's ``wsgi.py`` changing the line:
-
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "krivokucaeu.settings")
-
-to:
-
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-        "krivokucaeu.settings_production")
-
-And this simply works because (as I'm writing this Readme at least)
-Django's built in test server doesn't look into ``wsgi.py`` apparently.
+(this site should work in mostly all scenarios), but
+[here is the general idea](https://github.com/casastorta/krivokuca.eu/wiki/Deploying).
 
 ## Other opensource projects used in this project ##
 This project depends on a lot of other opensource projects. Starting from
@@ -140,11 +94,8 @@ hosting) go to
 
 # Plans for the future #
 Well, currently I can set the roadmap to couple of features for
-[Quotes](http://quotes.krivokuca.eu/) application:
+[Quotes](http://quotes.krivokuca.eu/) application, you'll see them
+as they come.
 
-* generating sitemaps,
-
-* custom stuff in admin interface maybe.
-
-As for more applications in this bundle... Well, keep in touch and we'll
-see.
+# Changelog #
+[Check the changelog here](https://github.com/casastorta/krivokuca.eu/wiki/Whatsnew).

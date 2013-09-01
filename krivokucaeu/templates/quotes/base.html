@@ -1,4 +1,6 @@
 {% load static from staticfiles %}
+{% load template_operations %}
+
 <!DOCTYPE HTML>
 <head>
   <title>{% block title %}{% endblock %}</title>
@@ -10,6 +12,7 @@
   <link rel="stylesheet" href="{% static 'quote/css/main.css' %}" />
   <script src="{% static 'common/js/vendor/jquery-2.0.3.min.js' %}"></script>
   <script src="{% static 'common/js/vendor/bootstrap.min.js' %}"></script>
+  {% template_exists "quotes/personal_google_website_tools_tag.html" %}
 </head>
 <body>
 
@@ -67,6 +70,8 @@
     </p>
   </footer>
 </div>
+
+{% template_exists "quotes/personal_google_analytics.html" %}
 
 </body>
 </html>

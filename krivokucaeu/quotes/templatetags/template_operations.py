@@ -15,6 +15,15 @@ def trackable_link(linkid, linksource, linktype, description):
     return assembly
 
 
+@register.simple_tag
+def template_exists(template_name):
+    try:
+        t = template.loader.render_to_string(template_name)
+        return t
+    except template.TemplateDoesNotExist:
+        return ''
+
+
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
